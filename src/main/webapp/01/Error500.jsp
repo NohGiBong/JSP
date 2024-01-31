@@ -1,8 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<html>
+
+
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE>
+<html lang="en">
 <head>
-    <title>ㅋㅋㅋㅋㅋ 지시어 - eroorPage, isErrorPage 속성</title>
+    <title>ㅋㅋ 지시어 - errorPage, isErrorPage 속성</title>
 </head>
 <body>
     <%
