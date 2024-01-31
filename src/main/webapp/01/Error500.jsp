@@ -6,7 +6,7 @@
 <!DOCTYPE>
 <html lang="en">
 <head>
-    <title>ㅋㅋㅋㅋㅋㅋ 지시어 - errorPage, isErrorPage 속성</title>
+    <title>ㅋㅋㅋㅋㅋㄴㅇㄹㅇㄹㄹㄴㅋ 지시어 - errorPage, isErrorPage 속성</title>
 </head>
 <body>
     <%
