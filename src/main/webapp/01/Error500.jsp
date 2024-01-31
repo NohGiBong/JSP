@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>지시어 - eroorPage, isErrorPage 속성</title>
+    <title>ㅋㅋㅋㅋㅋ 지시어 - eroorPage, isErrorPage 속성</title>
 </head>
 <body>
     <%
