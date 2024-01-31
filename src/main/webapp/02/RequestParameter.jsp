@@ -18,7 +18,6 @@
     String intro = request.getParameter("intro").replace("\r\n" , "<br/>");
 %>
 
-<h2>asdfsfsafsdf</h2>
 
 <ul>
     <li>아이디: <%=id%></li>
