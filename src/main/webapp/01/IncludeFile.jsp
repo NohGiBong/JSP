@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <title>page 지시어 - import 속성</title>
+    <title> ㅋㅋㅋㅋpage 지시어 - import 속성</title>
 </head>
 <body>
 <%
