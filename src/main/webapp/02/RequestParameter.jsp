@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title dsafdsfasdfdssdfsf</title>
+    <title>Title</title>
 </head>
 <body>
 <%
@@ -12,12 +12,11 @@
     String favoStr = "";
     if (favo != null) {
         for (int i = 0; i < favo.length; i++) {
-            favoStr += favo[i] + ", ";
+            favoStr += favo[i] + " ";
         }
     }
     String intro = request.getParameter("intro").replace("\r\n" , "<br/>");
 %>
-
 
 <ul>
     <li>아이디: <%=id%></li>
