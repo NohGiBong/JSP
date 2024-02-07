@@ -46,6 +46,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc10</artifactId>
+            <version>19.21.0.0</version>
+        </dependency>
+
 <!-- 어떤 라이브러리인지 주석 추가 -->
     </dependencies>
 
