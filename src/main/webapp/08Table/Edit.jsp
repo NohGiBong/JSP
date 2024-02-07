@@ -1,13 +1,18 @@
+<%@ page import="com.model1.board.BoardDAO" %>
+<%@ page import="com.model1.board.BoardDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ include file="IsLoggedIn.jsp"%>
 <%
     String num = request.getParameter("num");
     BoardDAO dao = new BoardDAO();
-    model1.board.BoardDTO dto = dao.selectView(num);
+    BoardDTO dto = dao.selectView(num);
     String sessionId = session.getAttribute("UserId").toString();
     if(!sessionId.equals(dto.getId())){
-        utils.JSFunction.alertBack("작성자 본인만 수정할 수 있습니다.", out);
+        JSFunction.alertBack("작성자 본인만 수정할 수 있습니다.", out);
+        return;
     }
+
+    dao.close();
 %>
 <html>
 <head>
