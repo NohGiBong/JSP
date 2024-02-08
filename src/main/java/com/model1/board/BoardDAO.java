@@ -1,7 +1,6 @@
 package com.model1.board;
 
 import com.common.DBConnPool;
-import jakarta.servlet.ServletContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.Map;
 
 public class BoardDAO extends DBConnPool {
 
-    public BoardDAO(ServletContext application) {
+    public BoardDAO() {
 
         super();
     }
@@ -36,23 +35,27 @@ public class BoardDAO extends DBConnPool {
         return totalCount;
     }
 
-    public List<BoardDTO> selectList(Map<String,Object>map){
+    public List<BoardDTO> selectListPage(Map<String,Object>map){
         //쿼리 결과를 담을 변수
         List<BoardDTO> bbs = new ArrayList<BoardDTO>();
         //쿼리문 작성
-        String query = "SELECT * FROM scott.board_jsp";
-//                + " SELECT Tb.*, ROWNUM rNum FROM ("
-//                + " SELECT * FROM board_jsp";
+        String query = "SELECT * FROM ("
+                + " SELECT Tb.*, ROWNUM rNum FROM ("
+                + " SELECT * FROM scott.board_jsp";
         if(map.get("searchWord") != null){
             query += " WHERE "  + map.get("searchField") + " "
                     +" LIKE '%" + map.get("searchWord") + "%'";
         }
-        query += " ORDER BY num desc" ;
-//                + " ) Tb"
-//                + " )";
+        query += " ORDER BY num DESC"
+                + " ) Tb"
+                + " )"
+                + " WHERE rNum BETWEEN ? AND?";
         try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(query);
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, map.get("start").toString());
+            psmt.setString(1, map.get("start").toString());
+
+            rs = psmt.executeQuery();
             while(rs.next()){
                 //한 row의 내용을 DTO에 저장
                 BoardDTO dto = new BoardDTO();

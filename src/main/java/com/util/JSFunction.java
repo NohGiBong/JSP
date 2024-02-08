@@ -1,4 +1,4 @@
-package utils;
+package com.util;
 
 import jakarta.servlet.jsp.JspWriter;
 

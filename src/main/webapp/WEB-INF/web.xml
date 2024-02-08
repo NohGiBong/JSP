@@ -8,6 +8,18 @@
         <param-value>web.xml 초기화 매개 변수</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>POSTS_PER_PAGE</param-name>
+    <param-value>10</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>POSTS_PER_BLOCK</param-name>
+        <param-value>5</param-value>
+    </context-param>
+
+
+
    <!-- <error-page>
         <error-code>404</error-code>
         <location>/02/Exception.jsp</location>
