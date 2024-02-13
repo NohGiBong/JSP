@@ -20,6 +20,16 @@
 
 
 
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.servlet.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/12Servlet/HelloServlet.do</url-pattern>
+    </servlet-mapping>
+
+
    <!-- <error-page>
         <error-code>404</error-code>
         <location>/02/Exception.jsp</location>
