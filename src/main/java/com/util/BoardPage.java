@@ -2,7 +2,7 @@ package com.util;
 
 public class BoardPage {
 
-    public static void pagingStr
+    public static String pagingStr
             (int totalCount, int pageSize,
              int blockPage,int pageNum, String reqUrl) {
         String pagingStr = "";
@@ -40,5 +40,6 @@ public class BoardPage {
             pagingStr += "&nbsp";
             pagingStr += "<a href='" + reqUrl + "?pageNum=" + totalPage + "'>[마지막 페이지]</a>";
         }
+        return pagingStr;
     }
 }

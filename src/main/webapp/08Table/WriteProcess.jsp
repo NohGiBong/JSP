@@ -8,6 +8,7 @@
     String content = request.getParameter("content");
 
     BoardDTO dto = new BoardDTO();
+
     dto.setTitle(title);
     dto.setContent(content);
     dto.setId(session.getAttribute("UserId").toString());

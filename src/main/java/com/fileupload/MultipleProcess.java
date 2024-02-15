@@ -9,14 +9,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-@WebServlet("/13/UploadProcess.do")
+@WebServlet("/13/MultipleProcess.do")
 @MultipartConfig(
         maxFileSize = 1024 * 1024 * 1,
         maxRequestSize = 1024 * 1024 * 10
 )
 
-public class UploadProcess extends HttpServlet {
+public class MultipleProcess extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
@@ -28,23 +29,24 @@ public class UploadProcess extends HttpServlet {
             String saveDirectory = getServletContext().getRealPath("/Uploads");
             System.out.println("saveDir 확인" + saveDirectory);
 
-            // 파일 업로드
-            String originalFileName = FileUtil.uploadFile(req, saveDirectory);
-
-            // 저장된 파일명 변경
-            String savedFileName = FileUtil.renameFile(saveDirectory, originalFileName);
-
-            // DB에 저장하기
-            insertMyFile(req, originalFileName, savedFileName);
-
+            // 다중 파일 업로드
+            ArrayList<String> listFileName = FileUtil.multipleFile(req, saveDirectory);
+            System.out.printf("list ::" + listFileName);
+            for(String originalFileName : listFileName) {
+                // 저장된 파일명 변경
+                String savedFileName = FileUtil.renameFile(saveDirectory, originalFileName);
+                System.out.printf("저장된 파일이름 변경" + savedFileName);
+                // DB에 저장하기
+                insertMyFile(req, originalFileName, savedFileName);
+                }
 
             // 파일 내용 전송 하기
             resp.sendRedirect("FileList.jsp");
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             req.setAttribute("errMessage", "파일 업로드 오류");
-            req.getRequestDispatcher("FileUploadMain.jsp").forward(req, resp);
+            req.getRequestDispatcher("MultiUploadMain.jsp").forward(req, resp);
         }
     }
 
@@ -66,6 +68,7 @@ public class UploadProcess extends HttpServlet {
                 index++; /* 1씩 증가*/
             }
         }
+
 
 //        else {
 //            for (int i = 0; i < cateArray.length; i++) {

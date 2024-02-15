@@ -1,7 +1,5 @@
 package com.common;
 
-import com.util.CookieManager;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -49,4 +47,5 @@ public class DBConnPool {
             e.printStackTrace();
         }
     }
+
 }
