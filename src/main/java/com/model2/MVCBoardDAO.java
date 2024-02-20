@@ -35,7 +35,7 @@ public class MVCBoardDAO extends DBConnPool { // 커넥션 풀 상속
         return totalCount;
     }
 
-    //
+    // 검색 조건에 맞는 게시물 목록을 반환
     public List<MVCBoardDTO> selectListPage(Map<String,Object>map){
         //쿼리 결과를 담을 변수
         List<MVCBoardDTO> bbs = new ArrayList<>();

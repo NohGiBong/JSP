@@ -99,6 +99,7 @@
             } else {
                 //화면상에서 게시물 번호
                 int virtualNum = 0;
+                int countNum = 0;
                 for(BoardDTO dto : boardList){
                     virtualNum = totalCount - ((pageNum -1) * pageSize) + countNum;
         %>
